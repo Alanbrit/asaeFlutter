@@ -1,6 +1,8 @@
 import 'package:asae/src/pages/login/login_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+
 
 class LoginPage extends StatelessWidget {
   LoginController con = Get.put(LoginController());
@@ -121,7 +123,7 @@ class LoginPage extends StatelessWidget {
           child: Text(
             'LOGIN',
             style: TextStyle(
-              color: Colors.black
+              color: Colors.white
             ),
           )
       ),
@@ -132,7 +134,7 @@ class LoginPage extends StatelessWidget {
   Widget _backgroundCover(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: MediaQuery.of(context).size.height * 0.42,
+      height: MediaQuery.of(context).size.height * 1,
       color: Color.fromRGBO(118,164,215,1.000)
     );
   }

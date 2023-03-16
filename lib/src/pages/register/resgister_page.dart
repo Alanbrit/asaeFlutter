@@ -161,7 +161,7 @@ class RegisterPage extends StatelessWidget {
 
   Widget _textYourInfo(){
     return Container(
-      margin: EdgeInsets.only(top: 40, bottom: 30),
+      margin: EdgeInsets.only(top: 30, bottom: 20),
       child: Text(
         'INGRESA ESTA INFORMACIÓN',
         style: TextStyle(
@@ -183,7 +183,7 @@ class RegisterPage extends StatelessWidget {
           child: Text(
             'REGISTRARSE',
             style: TextStyle(
-                color: Colors.black
+                color: Colors.white
             ),
           )
       ),
