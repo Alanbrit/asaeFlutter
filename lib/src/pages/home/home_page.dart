@@ -1,4 +1,5 @@
 import 'package:asae/src/pages/home/home_controller.dart';
+import 'package:asae/src/pages/user/home/user_home_page.dart';
 import 'package:asae/src/pages/user/list_page.dart';
 import 'package:asae/src/pages/user/update/user_update_page.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class HomePage extends StatelessWidget {
         body: Obx(()=>IndexedStack(
           index: con.indexTab.value,
           children: [
-            ListPage(),
+            UserHomePage(),
             ListPage(),
             UserUpdatePage()
           ],

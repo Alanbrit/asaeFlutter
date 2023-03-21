@@ -15,6 +15,7 @@ class User {
   String? password;
   String? foto;
   String? sessionToken;
+  String? idRol;
 
   User({
     this.id,
@@ -26,6 +27,7 @@ class User {
     this.password,
     this.foto,
     this.sessionToken,
+    this.idRol,
   });
 
 
@@ -40,6 +42,7 @@ class User {
     password: json["password"],
     foto: json["foto"],
     sessionToken: json["session_token"],
+    idRol: json["id_rol"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -52,5 +55,6 @@ class User {
     "password": password,
     "foto": foto,
     "session_token": sessionToken,
+    "id_rol": idRol,
   };
 }

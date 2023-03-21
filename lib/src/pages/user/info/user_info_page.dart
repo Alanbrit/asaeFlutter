@@ -1,10 +1,10 @@
-import 'package:asae/src/pages/register/register_controller.dart';
+import 'package:asae/src/pages/user/info/user_info_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-class RegisterPage extends StatelessWidget {
-  RegisterController con = Get.put(RegisterController());
+class UserInfoPage extends StatelessWidget {
+  UserInfoController con = Get.put(UserInfoController());
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class RegisterPage extends StatelessWidget {
 
   Widget _boxForm(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.70,
+      height: MediaQuery.of(context).size.height * 0.55,
       margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.27, left: 30, right: 30),
       decoration: BoxDecoration(
           color: Colors.white,
@@ -46,32 +46,17 @@ class RegisterPage extends StatelessWidget {
         child: Column(
           children: [
             _textYourInfo(),
-            _textFieldEmail(),
             _textFieldName(),
             _textFieldApellidos(),
             _textFieldFecha(context),
             _textFieldTelefono(),
-            _textFieldPassword(),
-            _textFieldConfirmPassword(),
-            _buttonLogin(context)
+            _buttonUpdate(context)
           ],
         ),
       ),
     );
   }
-  Widget _textFieldEmail(){
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
-      child: TextField(
-        controller: con.emailController,
-        keyboardType: TextInputType.emailAddress,
-        decoration: InputDecoration(
-            hintText: 'Correo electronico',
-            prefixIcon: Icon(Icons.email)
-        ),
-      ),
-    );
-  }
+
   Widget _textFieldName(){
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20),
@@ -99,14 +84,14 @@ class RegisterPage extends StatelessWidget {
       ),
     );
   }
+
   Widget _textFieldFecha(BuildContext context){
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20),
-      child:
-      TextField(
+      child: TextField(
         controller: con.fechaController,
         decoration: InputDecoration(
-            hintText: 'Ingresa tu fecha de nacimiento',
+            hintText: 'Fecha (AAAA-MM-DD)',
             prefixIcon: Icon(Icons.date_range)
         ),
         readOnly: true,
@@ -142,39 +127,10 @@ class RegisterPage extends StatelessWidget {
     );
   }
 
-  Widget _textFieldPassword(){
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
-      child: TextField(
-        controller: con.passwordController,
-        keyboardType: TextInputType.text,
-        obscureText: true,
-        decoration: InputDecoration(
-            hintText: 'Contraseña',
-            prefixIcon: Icon(Icons.lock)
-        ),
-      ),
-    );
-  }
-
-  Widget _textFieldConfirmPassword(){
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
-      child: TextField(
-        controller: con.confirmPasswordController,
-        keyboardType: TextInputType.text,
-        obscureText: true,
-        decoration: InputDecoration(
-            hintText: 'Confirmar contraseña',
-            prefixIcon: Icon(Icons.lock)
-        ),
-      ),
-    );
-  }
 
   Widget _textYourInfo(){
     return Container(
-      margin: EdgeInsets.only(top: 30, bottom: 20),
+      margin: EdgeInsets.only(top: 40, bottom: 30),
       child: Text(
         'INGRESA ESTA INFORMACIÓN',
         style: TextStyle(
@@ -184,17 +140,17 @@ class RegisterPage extends StatelessWidget {
     );
   }
 
-  Widget _buttonLogin(BuildContext context) {
+  Widget _buttonUpdate(BuildContext context) {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 40, vertical: 40),
       child: ElevatedButton(
-          onPressed: () => con.register(context),
+          onPressed: () => con.updat(context),
           style: ElevatedButton.styleFrom(
               padding: EdgeInsets.symmetric(vertical: 15)
           ),
           child: Text(
-            'REGISTRARSE',
+            'ACTUALIZAR',
             style: TextStyle(
                 color: Colors.white
             ),
@@ -209,16 +165,18 @@ class RegisterPage extends StatelessWidget {
         margin: EdgeInsets.only(top: 35),
         alignment: Alignment.topCenter,
         child: GestureDetector(
-          onTap: () => con.showAlertDialog(context),
-          child: GetBuilder<RegisterController> (
-            builder: (value) => CircleAvatar(
-              backgroundImage: con.imageFile != null
-                  ? FileImage(con.imageFile!)
-                  : AssetImage('assets/img/user1.png') as ImageProvider,
-              radius: 60,
-              backgroundColor: Colors.white,
-            ),
-          )
+            onTap: () => con.showAlertDialog(context),
+            child: GetBuilder<UserInfoController> (
+              builder: (value) => CircleAvatar(
+                backgroundImage: con.imageFile != null
+                    ? FileImage(con.imageFile!)
+                    : con.user.foto != null
+                      ? NetworkImage(con.user.foto!)
+                      : AssetImage('assets/img/user1.png') as ImageProvider,
+                radius: 60,
+                backgroundColor: Colors.white,
+              ),
+            )
         ),
       ),
     );

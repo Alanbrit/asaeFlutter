@@ -121,7 +121,7 @@ class RegisterController extends GetxController{
         child: Text(
           'GALERIA',
           style: TextStyle(
-              color: Colors.black
+              color: Colors.white
           ),
         )
     );
@@ -133,16 +133,19 @@ class RegisterController extends GetxController{
         child: Text(
             'CAMARA',
           style: TextStyle(
-            color: Colors.black
+            color: Colors.white
           ),
         )
     );
-    Widget alertDialog = AlertDialog(
-      title: Text('Selecciona una opción'),
-      actions: [
-        galleryButton,
-        camaraButton
-      ],
+    Widget alertDialog = Container(
+      alignment: Alignment.center,
+      child: AlertDialog(
+        title: Text('Selecciona una opción'),
+        actions: [
+          galleryButton,
+          camaraButton
+        ],
+      ),
     );
     showDialog(context: context, builder: (BuildContext context){
       return alertDialog;

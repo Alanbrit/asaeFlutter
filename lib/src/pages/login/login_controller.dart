@@ -49,13 +49,12 @@ class LoginController extends GetxController{
           print(isAuth);
         }on PlatformException catch(e){
           print(e);
-
         }
         if (isAuth == true){
           GetStorage().write('user', responseApi.data);
           goToHomePage();
         }else{
-          Get.snackbar('Login fallido', responseApi.message ?? '');
+          Get.snackbar('Login fallido', 'No se valido los biometricos');
         }
       }else {
         Get.snackbar('Login fallido', responseApi.message ?? '');
