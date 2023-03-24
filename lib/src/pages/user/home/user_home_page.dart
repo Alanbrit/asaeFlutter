@@ -7,45 +7,97 @@ class UserHomePage extends StatelessWidget {
 
   UserHomeController con = Get.put(UserHomeController());
 
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        body: new Stack(
-          children: [
-            new Container(
-              decoration: new BoxDecoration(
-                image: new DecorationImage(image: new AssetImage("assets/img/fondo2.png"), fit: BoxFit.cover,),
-              ),
-            ),
-              SizedBox(
-              width: 250.0,
-              child: DefaultTextStyle(
-              style: const TextStyle(
-              fontSize: 35,
-              color: Colors.white,
-              shadows: [
-              Shadow(
-              blurRadius: 7.0,
-              color: Colors.white,
-              offset: Offset(0, 0),
-              ),
-              ],
-              ),
-              child: AnimatedTextKit(
-              repeatForever: true,
-              animatedTexts: [
-              FlickerAnimatedText('Flicker Frenzy'),
-              FlickerAnimatedText('Night Vibes On'),
-              FlickerAnimatedText("C'est La Vie !"),
-              ],
-              onTap: () {
-              print("Tap Event");
-              },
-              ),
-              ),
-              )
-          ],
-        )
+    return Scaffold(
+      body: Stack(
+        children: [
+          _boxForm(context),
+        ],
+      ),
     );
   }
+
+  Widget _backgroundCover(BuildContext context) {
+    return Container(
+        width: double.infinity,
+        height: MediaQuery.of(context).size.height * 1,
+      decoration: const BoxDecoration(
+        gradient: const LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment(0.0, 1.0), // 10% of the width, so there are ten blinds.
+          colors: const <Color>[
+            Color.fromRGBO(118,164,215,1.000),
+            Color.fromRGBO(255, 255, 250, 1.000)
+          ], // red to yellow
+          tileMode: TileMode.repeated, // repeats the gradient over the canvas
+        ),
+      ),
+    );
+  }
+  Widget _boxForm(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.40,
+      margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.40, left: 50, right: 50),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            _textYourInfo(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _textYourInfo(){
+    return SizedBox(
+      child: DefaultTextStyle(
+        style: const TextStyle(
+          fontSize: 50,
+          color: Color.fromRGBO(118,164,215,1.000),
+          shadows: [
+            Shadow(
+              blurRadius: 7.0,
+              color: Color.fromRGBO(118,164,215,1.000),
+              offset: Offset(0, 0),
+            ),
+          ],
+        ),
+        child: AnimatedTextKit(
+          repeatForever: true,
+          animatedTexts: [
+            FlickerAnimatedText('Bienvenido...'),
+            FlickerAnimatedText('${con.user.nombre}'),
+            FlickerAnimatedText('${con.user.apellidos}'),
+          ],
+          onTap: () {
+            print("Tap Event");
+          },
+        ),
+      ),
+    );
+  }
+
+
+
+  // Widget _textYourInfo(){
+  //   return DefaultTextStyle(
+  //     style: const TextStyle(
+  //       fontSize: 60.0,
+  //     ),
+  //     child: AnimatedTextKit(
+  //       animatedTexts: [
+  //         WavyAnimatedText('Bienvenido: '),
+  //         WavyAnimatedText('${con.user.nombre}'),
+  //         WavyAnimatedText('${con.user.apellidos}'),
+  //       ],
+  //       isRepeatingAnimation: true,
+  //       onTap: () {
+  //         print("Tap Event");
+  //       },
+  //     ),
+  //   );
+  // }
+
 }

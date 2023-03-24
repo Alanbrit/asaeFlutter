@@ -1,5 +1,7 @@
 import 'package:asae/src/pages/register/resgister_page.dart';
+import 'package:asae/src/pages/user/create/user_create_page.dart';
 import 'package:asae/src/pages/user/home/user_home_page.dart';
+import 'package:asae/src/pages/user/image/user_image_page.dart';
 import 'package:asae/src/pages/user/info/user_info_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -41,7 +43,9 @@ class _MyAppState extends State<MyApp> {
         GetPage(name: '/home', page: () => HomePage()),
         GetPage(name: '/user/update/update', page: () => UserUpdatePage()),
         GetPage(name: '/user/info/info', page: () => UserInfoPage()),
-        GetPage(name: '/user/home', page: () => UserHomePage())
+        GetPage(name: '/user/home', page: () => UserHomePage()),
+        GetPage(name: '/user/image', page: () => UserImagePage()),
+        GetPage(name: '/image/create', page: () => UserCreatePage())
       ],
       theme: ThemeData(
         primaryColor: Color.fromRGBO(118,164,215,1.000),
