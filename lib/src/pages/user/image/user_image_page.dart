@@ -105,7 +105,7 @@ class UserImagePage extends StatelessWidget {
                       ? NetworkImage(archivo.imagen1!)
                       : AssetImage('assets/img/user.png') as ImageProvider,)
             ),
-            _buttonUpdate(context)
+            _buttonUpdate(context, archivo.id!)
           ],
         ),
       ),
@@ -114,17 +114,18 @@ class UserImagePage extends StatelessWidget {
 
 
 
-  Widget _buttonUpdate(BuildContext context) {
+  Widget _buttonUpdate(BuildContext context, String id) {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
       child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () => con.delete(context, id),
           style: ElevatedButton.styleFrom(
+              primary: Colors.red,
               padding: EdgeInsets.symmetric(vertical: 15)
           ),
           child: Text(
-            'ACTUALIZAR DATOS',
+            'ELIMINAR MIS DATOS',
             style: TextStyle(
                 color: Colors.white
             ),

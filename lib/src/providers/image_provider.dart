@@ -45,4 +45,15 @@ class ArchivoProvider extends GetConnect {
     List<Archivo> image = Archivo.fromJsonList(response.body);
     return image;
   }
+
+  Future<Response> deleteArchivo(String id) async {
+    Response response = await delete(
+        '$url/delete/${id}',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': userSession.sessionToken ?? ''
+        }
+    );
+    return response;
+  }
 }
