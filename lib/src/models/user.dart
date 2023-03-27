@@ -45,6 +45,17 @@ class User {
     idRol: json["id_rol"],
   );
 
+  static List<User> fromJsonList(List<dynamic> jsonList) {
+    List<User> toList = [];
+
+    jsonList.forEach((item) {
+      User user = User.fromJson(item);
+      toList.add(user);
+    });
+    return toList;
+  }
+
+
   Map<String, dynamic> toJson() => {
     "id": id,
     "correo": correo,

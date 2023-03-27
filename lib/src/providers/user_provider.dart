@@ -6,9 +6,11 @@ import 'package:asae/src/models/response_api.dart';
 import 'package:asae/src/models/user.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:get_storage/get_storage.dart';
 
 class UsersProvider extends GetConnect {
   String url = Environmet.API_URL + 'api/users';
+  User userSession = User.fromJson(GetStorage().read('user') ?? {});
 
   Future<Response> create(User user) async {
     Response response = await post(
@@ -86,5 +88,20 @@ class UsersProvider extends GetConnect {
     return responseApi;
   }
 
+  Future<List<User>> findByRol(String id_rol) async {
+    Response response = await get(
+        '$url/findByRol/$id_rol',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+    );
+    if (response.body == null) {
+      Get.snackbar('Error', 'No se pudo ejecutar la peticion');
+      return [];
+    }
+
+    List<User> user = User.fromJsonList(response.body);
+    return user;
+  }
 
 }

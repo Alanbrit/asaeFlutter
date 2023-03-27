@@ -94,7 +94,7 @@ class UserImagePage extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.2,
                 child: Image(
                   image: archivo.imagen1 != null
-                      ? NetworkImage(archivo.imagen1!)
+                      ? NetworkImage(archivo.imagen2!)
                       : AssetImage('assets/img/user.png') as ImageProvider,)
             ),
             Container(
@@ -102,7 +102,7 @@ class UserImagePage extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.2,
                 child: Image(
                   image: archivo.imagen1 != null
-                      ? NetworkImage(archivo.imagen1!)
+                      ? NetworkImage(archivo.imagen3!)
                       : AssetImage('assets/img/user.png') as ImageProvider,)
             ),
             _buttonUpdate(context, archivo.id!)

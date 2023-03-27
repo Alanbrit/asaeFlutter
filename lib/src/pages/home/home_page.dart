@@ -5,6 +5,8 @@ import 'package:asae/src/pages/user/update/user_update_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:asae/src/utils/custom_animated_bottom_bar.dart';
+import 'package:asae/src/pages/user/chat/user_chats_page.dart';
+import 'package:asae/src/pages/user/mensajeusu/user_mensajeusu_page.dart';
 
 class HomePage extends StatelessWidget {
 
@@ -17,7 +19,8 @@ class HomePage extends StatelessWidget {
         body: Obx(()=>IndexedStack(
           index: con.indexTab.value,
           children: [
-            UserHomePage(),
+            ChatsPage(),
+            UserMensajeListPage(),
             UserImagePage(),
             UserUpdatePage()
           ],
@@ -36,10 +39,16 @@ class HomePage extends StatelessWidget {
       onItemSelected: (index) => con.changeTab(index),
       items: [
         BottomNavyBarItem(
-            icon: Icon(Icons.apps),
-            title: Text('Inicio'),
+            icon: Icon(Icons.message),
+            title: Text('Mensaje'),
             activeColor: Colors.white,
-            inactiveColor: Colors.black
+            inactiveColor: Colors.black87
+        ),
+        BottomNavyBarItem(
+            icon: Icon(Icons.contact_page),
+            title: Text('Usuarios'),
+            activeColor: Colors.white,
+            inactiveColor: Colors.black87
         ),
         BottomNavyBarItem(
             icon: Icon(Icons.list),
