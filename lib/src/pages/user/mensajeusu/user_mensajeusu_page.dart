@@ -2,7 +2,7 @@ import 'package:asae/src/pages/user/mensajeusu/user_mensajeusu_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter/cupertino.dart';
-
+import 'package:asae/src/environment/environmet.dart';
 import '../../../models/user.dart';
 
 class UserMensajeListPage extends StatelessWidget {
@@ -21,7 +21,7 @@ class UserMensajeListPage extends StatelessWidget {
           ),
         ),
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.lightBlue[900],
+        backgroundColor: Color.fromRGBO(118,164,215,1.000),
       ),
       body: SafeArea(
         child: FutureBuilder(
@@ -58,10 +58,12 @@ class UserMensajeListPage extends StatelessWidget {
       leading: AspectRatio(
         aspectRatio: 1,
         child: ClipOval(
-          child: FadeInImage.assetNetwork(
-              fit: BoxFit.cover,
-              placeholder: 'assets/img/user_profile_2.png',
-              image: user.foto ?? 'https://bysperfeccionoral.com/wp-content/uploads/2020/01/136-1366211_group-of-10-guys-login-user-icon-png.jpg'
+          child: CircleAvatar(
+            backgroundImage: user.foto != null
+                ? NetworkImage(user.foto!)
+                : AssetImage('assets/img/user.png') as ImageProvider,
+            radius: 60,
+            backgroundColor: Colors.white,
           ),
         ),
       ),

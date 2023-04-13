@@ -14,6 +14,7 @@ import 'package:sn_progress_dialog/progress_dialog.dart';
 
 class UserCreateController extends GetxController{
   ArchivoProvider imageProvider = ArchivoProvider();
+
   ImagePicker picker = ImagePicker();
   File? imageFile;
   File? imageFile2;
@@ -100,6 +101,30 @@ class UserCreateController extends GetxController{
         title: Text('Selecciona una opción'),
         actions: [
           galleryButton,
+          camaraButton
+        ],
+      ),
+    );
+    showDialog(context: context, builder: (BuildContext context){
+      return alertDialog;
+    });
+  }
+
+  void showAlertDialog1(BuildContext context){
+    Widget camaraButton = ElevatedButton(
+        onPressed: () => Get.back(),
+        child: Text(
+          'OK',
+          style: TextStyle(
+              color: Colors.white
+          ),
+        )
+    );
+    Widget alertDialog = Container(
+      alignment: Alignment.center,
+      child: AlertDialog(
+        title: Text('Ingresa las imagenes en el siguiente orden: \n -Ine (parte frontal \n -Ine (parte trasera) \n -Comprobante de domicilio no mayor a 3 meses'),
+        actions: [
           camaraButton
         ],
       ),

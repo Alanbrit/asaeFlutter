@@ -14,7 +14,8 @@ class UserCreatePage extends StatelessWidget {
         children: [
           _backgroundCover(context),
           _boxForm(context),
-          _buttonBack()
+          _buttonBack(),
+          _buttonInfo(context)
         ],
       ),
     );
@@ -105,6 +106,23 @@ class UserCreatePage extends StatelessWidget {
             onPressed: () => Get.back(),
             icon: Icon(
               Icons.arrow_back_ios,
+              color: Colors.white,
+              size: 30,
+            ),
+          ),
+        )
+    );
+  }
+
+  Widget _buttonInfo(BuildContext context){
+    return SafeArea(
+        child: Container(
+          margin: EdgeInsets.only(left: 20),
+          alignment: Alignment.topRight,
+          child: IconButton(
+            onPressed: () => con.showAlertDialog1(context),
+            icon: Icon(
+              Icons.info_outlined,
               color: Colors.white,
               size: 30,
             ),

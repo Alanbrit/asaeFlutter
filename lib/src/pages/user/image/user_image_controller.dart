@@ -47,7 +47,7 @@ class UserImageController extends GetxController{
       Widget alertDialog = Container(
         alignment: Alignment.center,
         child: AlertDialog(
-          title: Text('Selecciona una opción'),
+          title: Text('¿Estas seguro de eliminar tus imagenes?'),
           actions: [
             aceptar,
             rechazar

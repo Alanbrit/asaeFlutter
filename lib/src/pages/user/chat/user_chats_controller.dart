@@ -1,9 +1,10 @@
 import 'package:asae/src/providers/chat_provider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:asae/src/models/chat.dart';
 import 'package:asae/src/models/user.dart';
-
+import 'package:flutter/material.dart';
 import '../../home/home_controller.dart';
 
 class ChatsController extends GetxController{
@@ -22,7 +23,21 @@ class ChatsController extends GetxController{
     var result = await chatProvider.findByIdUser(myUser.id ?? '', myUser.id ?? '', myUser.id ?? '');
     chats.clear();
     chats.addAll(result);
+    if(chats?.isNotEmpty == true){
+      _textYourInfo();
+    }
+  }
 
+  Widget _textYourInfo(){
+    return Container(
+      margin: EdgeInsets.only(top: 30, bottom: 20),
+      child: Text(
+        'NO HAS SUBIDO FOTOS AUN',
+        style: TextStyle(
+          color: Colors.black,
+        ),
+      ),
+    );
   }
 
   void listenMensaje(){

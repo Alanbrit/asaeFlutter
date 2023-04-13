@@ -117,7 +117,7 @@ class UserInfoController extends GetxController{
         child: Text(
           'GALERIA',
           style: TextStyle(
-              color: Colors.black
+              color: Colors.white
           ),
         )
     );
@@ -129,7 +129,7 @@ class UserInfoController extends GetxController{
         child: Text(
           'CAMARA',
           style: TextStyle(
-              color: Colors.black
+              color: Colors.white
           ),
         )
     );

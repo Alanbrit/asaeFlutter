@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
       items: [
         BottomNavyBarItem(
             icon: Icon(Icons.message),
-            title: Text('Mensaje'),
+            title: Text('Mensajes'),
             activeColor: Colors.white,
             inactiveColor: Colors.black87
         ),

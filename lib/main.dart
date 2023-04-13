@@ -6,6 +6,7 @@ import 'package:asae/src/pages/user/info/user_info_page.dart';
 import 'package:asae/src/pages/user/mensajeusu/user_mensajeusu_page.dart';
 import 'package:asae/src/pages/user/messages/user_messages_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:asae/src/pages/login/login_page.dart';
 import 'package:get_storage/get_storage.dart';

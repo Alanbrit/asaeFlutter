@@ -57,8 +57,8 @@ class UserImagePage extends StatelessWidget {
 
   Widget _cardMenu(Archivo archivo, BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.65,
-      margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.15, left: 30, right: 30),
+      height: MediaQuery.of(context).size.height * 0.7,
+      margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.1, left: 30, right: 30),
       decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: <BoxShadow>[

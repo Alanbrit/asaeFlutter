@@ -43,6 +43,7 @@ class ChatsPage extends StatelessWidget {
     }).toList();
   }
 
+
   Widget cardUser(Chat chat) {
     return ListTile(
       onTap: () => con.goToChat(chat),
@@ -100,5 +101,6 @@ class ChatsPage extends StatelessWidget {
       ),
     );
   }
+
 
 }

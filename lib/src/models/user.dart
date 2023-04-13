@@ -14,8 +14,9 @@ class User {
   String? telefono;
   String? password;
   String? foto;
-  String? sessionToken;
   String? idRol;
+  String? sessionToken;
+
 
   User({
     this.id,
@@ -26,8 +27,8 @@ class User {
     this.telefono,
     this.password,
     this.foto,
-    this.sessionToken,
     this.idRol,
+    this.sessionToken,
   });
 
 
@@ -41,8 +42,8 @@ class User {
     telefono: json["telefono"],
     password: json["password"],
     foto: json["foto"],
-    sessionToken: json["session_token"],
     idRol: json["id_rol"],
+    sessionToken: json["session_token"],
   );
 
   static List<User> fromJsonList(List<dynamic> jsonList) {
@@ -65,7 +66,7 @@ class User {
     "telefono": telefono,
     "password": password,
     "foto": foto,
-    "session_token": sessionToken,
     "id_rol": idRol,
+    "session_token": sessionToken,
   };
 }
